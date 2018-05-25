@@ -10,6 +10,18 @@ import UIKit
 import MapKit
 import CoreLocation
 
+class MapPin : NSObject, MKAnnotation {
+    var coordinate: CLLocationCoordinate2D
+    var title: String?
+    var subtitle: String?
+    
+    init(coordinate: CLLocationCoordinate2D, title: String?, subtitle: String?) {
+        self.coordinate = coordinate
+        self.title = title
+        self.subtitle = subtitle
+    }
+}
+
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
     var locationManager: CLLocationManager!
@@ -45,6 +57,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        defer {
+            manager.stopUpdatingLocation()
+        }
         let userLocation:CLLocation = locations[0] as CLLocation
         
         // Call stopUpdatingLocation() to stop listening for location updates,
@@ -59,8 +74,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
         centerMapOnLocation(location: initialLocation)
         
-        manager.stopUpdatingLocation()
-
+        guard let mapView = mapView else {
+            return
+        }
+        let annotation = MapPin(coordinate: initialLocation.coordinate, title: nil, subtitle: nil)
+        mapView.addAnnotation(annotation)
+        
 
     }
     
