@@ -16,6 +16,7 @@
 		F449F2E820B8AD53004707F2 /* Hospital.swift in Sources */ = {isa = PBXBuildFile; fileRef = F449F2E720B8AD53004707F2 /* Hospital.swift */; };
 		F449F2EA20B8B23B004707F2 /* HospitalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F449F2E920B8B23B004707F2 /* HospitalTableViewCell.swift */; };
 		F449F2EE20B8B38D004707F2 /* HospitalDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F449F2ED20B8B38D004707F2 /* HospitalDetails.swift */; };
+		F449F2F020B8B84F004707F2 /* HospitalTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F449F2EF20B8B84F004707F2 /* HospitalTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F449F2E720B8AD53004707F2 /* Hospital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospital.swift; sourceTree = "<group>"; };
 		F449F2E920B8B23B004707F2 /* HospitalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalTableViewCell.swift; sourceTree = "<group>"; };
 		F449F2ED20B8B38D004707F2 /* HospitalDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HospitalDetails.swift; path = ../HospitalDetails.swift; sourceTree = "<group>"; };
+		F449F2EF20B8B84F004707F2 /* HospitalTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				F41BB2DC20B890C200FCA494 /* AppDelegate.swift */,
 				F41BB2DE20B890C200FCA494 /* ViewController.swift */,
+				F449F2EF20B8B84F004707F2 /* HospitalTableView.swift */,
 				F449F2E920B8B23B004707F2 /* HospitalTableViewCell.swift */,
 				F449F2E720B8AD53004707F2 /* Hospital.swift */,
 				F449F2ED20B8B38D004707F2 /* HospitalDetails.swift */,
@@ -151,6 +154,7 @@
 				F41BB2E520B890C200FCA494 /* Help_Watson.xcdatamodeld in Sources */,
 				F449F2E820B8AD53004707F2 /* Hospital.swift in Sources */,
 				F41BB2DF20B890C200FCA494 /* ViewController.swift in Sources */,
+				F449F2F020B8B84F004707F2 /* HospitalTableView.swift in Sources */,
 				F449F2EA20B8B23B004707F2 /* HospitalTableViewCell.swift in Sources */,
 				F41BB2DD20B890C200FCA494 /* AppDelegate.swift in Sources */,
 			);

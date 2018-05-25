@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Hospital {
+struct Hospital: Codable {
     var name: String
     var address: String
     var rank: Int
-    var treatmentTime: Double
+    var treatmentTime: Int
 }
