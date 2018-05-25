@@ -22,7 +22,7 @@ class MapPin : NSObject, MKAnnotation {
     }
 }
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate  {
 
     var locationManager: CLLocationManager!
     
@@ -79,7 +79,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
         let annotation = MapPin(coordinate: initialLocation.coordinate, title: nil, subtitle: nil)
         mapView.addAnnotation(annotation)
-        
 
     }
     
