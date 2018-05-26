@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A2CAF0BF20B9675300C45489 /* hospitaldata.json in Resources */ = {isa = PBXBuildFile; fileRef = A2CAF0BE20B9675300C45489 /* hospitaldata.json */; };
 		F41BB2DD20B890C200FCA494 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BB2DC20B890C200FCA494 /* AppDelegate.swift */; };
 		F41BB2E220B890C200FCA494 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F41BB2E020B890C200FCA494 /* Main.storyboard */; };
 		F41BB2E520B890C200FCA494 /* Help_Watson.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F41BB2E320B890C200FCA494 /* Help_Watson.xcdatamodeld */; };
@@ -18,10 +17,11 @@
 		F449F2EE20B8B38D004707F2 /* HospitalDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F449F2ED20B8B38D004707F2 /* HospitalDetails.swift */; };
 		F449F2F020B8B84F004707F2 /* HospitalTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F449F2EF20B8B84F004707F2 /* HospitalTableView.swift */; };
 		F449F2F220B95812004707F2 /* HospitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F449F2F120B95812004707F2 /* HospitalViewController.swift */; };
+		F449F2F420B96EF8004707F2 /* hospitaldata.json in Resources */ = {isa = PBXBuildFile; fileRef = F449F2F320B96EF4004707F2 /* hospitaldata.json */; };
+		F449F2F920B973A1004707F2 /* keras_help_waston.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F449F2F820B973A1004707F2 /* keras_help_waston.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A2CAF0BE20B9675300C45489 /* hospitaldata.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = hospitaldata.json; sourceTree = "<group>"; };
 		F41BB2D920B890C200FCA494 /* Help Watson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Help Watson.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41BB2DC20B890C200FCA494 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F41BB2E120B890C200FCA494 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -34,6 +34,8 @@
 		F449F2ED20B8B38D004707F2 /* HospitalDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HospitalDetails.swift; path = ../HospitalDetails.swift; sourceTree = "<group>"; };
 		F449F2EF20B8B84F004707F2 /* HospitalTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalTableView.swift; sourceTree = "<group>"; };
 		F449F2F120B95812004707F2 /* HospitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalViewController.swift; sourceTree = "<group>"; };
+		F449F2F320B96EF4004707F2 /* hospitaldata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hospitaldata.json; sourceTree = "<group>"; };
+		F449F2F820B973A1004707F2 /* keras_help_waston.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = keras_help_waston.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,10 +68,12 @@
 		F41BB2DB20B890C200FCA494 /* Help Watson */ = {
 			isa = PBXGroup;
 			children = (
+				F449F2F820B973A1004707F2 /* keras_help_waston.mlmodel */,
 				F41BB2DC20B890C200FCA494 /* AppDelegate.swift */,
 				F449F2EF20B8B84F004707F2 /* HospitalTableView.swift */,
 				F449F2F120B95812004707F2 /* HospitalViewController.swift */,
 				F449F2E920B8B23B004707F2 /* HospitalTableViewCell.swift */,
+				F449F2F320B96EF4004707F2 /* hospitaldata.json */,
 				F449F2E720B8AD53004707F2 /* Hospital.swift */,
 				F449F2ED20B8B38D004707F2 /* HospitalDetails.swift */,
 				F41BB2E020B890C200FCA494 /* Main.storyboard */,
@@ -77,7 +81,6 @@
 				F41BB2E820B890C300FCA494 /* LaunchScreen.storyboard */,
 				F41BB2EB20B890C300FCA494 /* Info.plist */,
 				F41BB2E320B890C200FCA494 /* Help_Watson.xcdatamodeld */,
-				A2CAF0BE20B9675300C45489 /* hospitaldata.json */,
 			);
 			path = "Help Watson";
 			sourceTree = "<group>";
@@ -143,7 +146,7 @@
 				F41BB2EA20B890C300FCA494 /* LaunchScreen.storyboard in Resources */,
 				F41BB2E720B890C300FCA494 /* Assets.xcassets in Resources */,
 				F41BB2E220B890C200FCA494 /* Main.storyboard in Resources */,
-				A2CAF0BF20B9675300C45489 /* hospitaldata.json in Resources */,
+				F449F2F420B96EF8004707F2 /* hospitaldata.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +159,7 @@
 			files = (
 				F449F2EE20B8B38D004707F2 /* HospitalDetails.swift in Sources */,
 				F41BB2E520B890C200FCA494 /* Help_Watson.xcdatamodeld in Sources */,
+				F449F2F920B973A1004707F2 /* keras_help_waston.mlmodel in Sources */,
 				F449F2F220B95812004707F2 /* HospitalViewController.swift in Sources */,
 				F449F2E820B8AD53004707F2 /* Hospital.swift in Sources */,
 				F449F2F020B8B84F004707F2 /* HospitalTableView.swift in Sources */,

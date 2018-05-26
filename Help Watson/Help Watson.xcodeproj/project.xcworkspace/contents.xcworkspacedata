@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Help Watson.xcodeproj">
+      location = "group:keras_help_waston.mlmodel">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

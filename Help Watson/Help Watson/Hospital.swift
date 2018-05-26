@@ -14,5 +14,5 @@ struct Hospital: Codable {
     var rank: Int
     var lat:Double
     var long:Double
-//    var treatmentTime: Int
+    var treatmentTime: Double?
 }

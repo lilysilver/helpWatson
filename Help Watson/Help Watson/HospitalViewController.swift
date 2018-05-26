@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-
+import CoreML
 
 
 class MapPin : NSObject, MKAnnotation {
@@ -32,8 +32,25 @@ class HospitalViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.populateTableView()
-
         // Do any additional setup after loading the view.
+    }
+    
+    func feedModel(dataPoints: [Double]) -> Double? {
+        let model = keras_help_waston()
+        guard let multiArray = try? MLMultiArray(shape: [12], dataType: MLMultiArrayDataType.double) else {
+            print("could not create multiArray")
+            return nil
+        }
+        for (index, element) in dataPoints.enumerated() {
+            multiArray[index] = NSNumber(floatLiteral: element)
+        }
+        if let prediction = try? model.prediction(input1: multiArray) as keras_help_wastonOutput {
+            guard let first = prediction.output1[0] as? Double else {
+                return nil
+            }
+            return first
+        }
+        return nil
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,8 +71,21 @@ class HospitalViewController: UIViewController, UITableViewDataSource, UITableVi
                 let jsonData = try Data(contentsOf: path, options: .mappedIfSafe)
                 let hospitaldata = try JSONDecoder().decode([Hospital].self, from: jsonData)
                 print(hospitaldata)
+                var modeledHospitals = [Hospital]()
+                for hospital in hospitaldata {
+                    var copy = hospital
+                    if let treatmentTime = feedModel(dataPoints: [hospital.long, hospital.lat, 100 + Double(arc4random_uniform(7)),    Double(arc4random_uniform(7)),    4,    6,    20,    0,    1,    0,    0,    0]) {
+                        copy.treatmentTime = treatmentTime
+                        modeledHospitals.append(copy)
+                    }
+                }
                 DispatchQueue.main.async {
-                    self.hospitals = hospitaldata
+                    self.hospitals = modeledHospitals.sorted {
+                        if let firsttreatmenttime = $0.treatmentTime, let secondTreatmentTime = $1.treatmentTime {
+                            return firsttreatmenttime < secondTreatmentTime
+                        }
+                        return false
+                    }
                     var annotations = [MapPin]()
                     for hospital in self.hospitals {
                         annotations.append(MapPin(coordinate: CLLocationCoordinate2D(latitude: hospital.lat, longitude: hospital.long), title: hospital.name, subtitle: "#\(hospital.rank)"))
@@ -102,8 +132,10 @@ class HospitalViewController: UIViewController, UITableViewDataSource, UITableVi
         
         cell.nameLabel?.text = hospital.name
         cell.addressLabel?.text = hospital.address
-        cell.rankLabel?.text = String(hospital.rank)
-        //cell.treatmentLabel?.text = String(hospital.treatmentTime)
+        cell.rankLabel?.text = "\(indexPath.row + 1)"
+        if let treatmentTime = hospital.treatmentTime {
+            cell.treatmentLabel?.text = "\(treatmentTime) minutes to treatment"
+        }
         
         self.tableView?.allowsSelection = false 
         
@@ -157,7 +189,7 @@ class HospitalViewController: UIViewController, UITableViewDataSource, UITableVi
         print("Error \(error)")
     }
     
-    let regionRadius: CLLocationDistance = 3000
+    let regionRadius: CLLocationDistance = 5300
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius, regionRadius)
