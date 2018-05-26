@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 
+
+
 class MapPin : NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var title: String?
@@ -29,6 +31,7 @@ class HospitalViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.populateTableView()
 
         // Do any additional setup after loading the view.
     }
@@ -45,8 +48,25 @@ class HospitalViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func populateTableView() {
         // get your data
-        hospitals = []
-        tableView?.reloadData()
+        
+        if let path = Bundle.main.url(forResource: "hospitaldata", withExtension: "json") {
+            do {
+                let jsonData = try Data(contentsOf: path, options: .mappedIfSafe)
+                let hospitaldata = try JSONDecoder().decode([Hospital].self, from: jsonData)
+                print(hospitaldata)
+                DispatchQueue.main.async {
+                    self.hospitals = hospitaldata
+                    var annotations = [MapPin]()
+                    for hospital in self.hospitals {
+                        annotations.append(MapPin(coordinate: CLLocationCoordinate2D(latitude: hospital.lat, longitude: hospital.long), title: hospital.name, subtitle: "#\(hospital.rank)"))
+                    }
+                    self.mapView?.addAnnotations(annotations)
+                    self.tableView?.reloadData()
+                }
+            } catch {
+                print("couldn't parse JSON Data")
+            }
+        }
     }
     
 
@@ -83,12 +103,16 @@ class HospitalViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.nameLabel?.text = hospital.name
         cell.addressLabel?.text = hospital.address
         cell.rankLabel?.text = String(hospital.rank)
-        cell.treatmentLabel?.text = String(hospital.treatmentTime)
+        //cell.treatmentLabel?.text = String(hospital.treatmentTime)
         
         self.tableView?.allowsSelection = false 
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 104
     }
     func determineMyCurrentLocation() {
         locationManager = CLLocationManager()
@@ -116,14 +140,15 @@ class HospitalViewController: UIViewController, UITableViewDataSource, UITableVi
         print("user latitude = \(userLocation.coordinate.latitude)")
         print("user longitude = \(userLocation.coordinate.longitude)")
         
-        let initialLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+//        let initialLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        let initialLocation = CLLocation(latitude: 40.756429, longitude: -73.977823)
         
         centerMapOnLocation(location: initialLocation)
         
         guard let mapView = mapView else {
             return
         }
-        let annotation = MapPin(coordinate: initialLocation.coordinate, title: nil, subtitle: nil)
+        let annotation = MapPin(coordinate: initialLocation.coordinate, title: "Your Location", subtitle: nil)
         mapView.addAnnotation(annotation)
         
     }
@@ -132,7 +157,7 @@ class HospitalViewController: UIViewController, UITableViewDataSource, UITableVi
         print("Error \(error)")
     }
     
-    let regionRadius: CLLocationDistance = 1000
+    let regionRadius: CLLocationDistance = 3000
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius, regionRadius)

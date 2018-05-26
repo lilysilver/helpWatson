@@ -12,5 +12,7 @@ struct Hospital: Codable {
     var name: String
     var address: String
     var rank: Int
-    var treatmentTime: Int
+    var lat:Double
+    var long:Double
+//    var treatmentTime: Int
 }

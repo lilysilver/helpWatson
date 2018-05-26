@@ -106,6 +106,10 @@
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="lAX-Id-zaA"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="h46-RM-9dJ"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                             </stackView>
