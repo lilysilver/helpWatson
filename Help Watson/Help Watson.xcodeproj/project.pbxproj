@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F41BB2DD20B890C200FCA494 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BB2DC20B890C200FCA494 /* AppDelegate.swift */; };
-		F41BB2DF20B890C200FCA494 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BB2DE20B890C200FCA494 /* ViewController.swift */; };
 		F41BB2E220B890C200FCA494 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F41BB2E020B890C200FCA494 /* Main.storyboard */; };
 		F41BB2E520B890C200FCA494 /* Help_Watson.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F41BB2E320B890C200FCA494 /* Help_Watson.xcdatamodeld */; };
 		F41BB2E720B890C300FCA494 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F41BB2E620B890C300FCA494 /* Assets.xcassets */; };
@@ -17,12 +16,12 @@
 		F449F2EA20B8B23B004707F2 /* HospitalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F449F2E920B8B23B004707F2 /* HospitalTableViewCell.swift */; };
 		F449F2EE20B8B38D004707F2 /* HospitalDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F449F2ED20B8B38D004707F2 /* HospitalDetails.swift */; };
 		F449F2F020B8B84F004707F2 /* HospitalTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F449F2EF20B8B84F004707F2 /* HospitalTableView.swift */; };
+		F449F2F220B95812004707F2 /* HospitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F449F2F120B95812004707F2 /* HospitalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F41BB2D920B890C200FCA494 /* Help Watson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Help Watson.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41BB2DC20B890C200FCA494 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F41BB2DE20B890C200FCA494 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F41BB2E120B890C200FCA494 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F41BB2E420B890C200FCA494 /* Help_Watson.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Help_Watson.xcdatamodel; sourceTree = "<group>"; };
 		F41BB2E620B890C300FCA494 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -32,6 +31,7 @@
 		F449F2E920B8B23B004707F2 /* HospitalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalTableViewCell.swift; sourceTree = "<group>"; };
 		F449F2ED20B8B38D004707F2 /* HospitalDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HospitalDetails.swift; path = ../HospitalDetails.swift; sourceTree = "<group>"; };
 		F449F2EF20B8B84F004707F2 /* HospitalTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalTableView.swift; sourceTree = "<group>"; };
+		F449F2F120B95812004707F2 /* HospitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +65,8 @@
 			isa = PBXGroup;
 			children = (
 				F41BB2DC20B890C200FCA494 /* AppDelegate.swift */,
-				F41BB2DE20B890C200FCA494 /* ViewController.swift */,
 				F449F2EF20B8B84F004707F2 /* HospitalTableView.swift */,
+				F449F2F120B95812004707F2 /* HospitalViewController.swift */,
 				F449F2E920B8B23B004707F2 /* HospitalTableViewCell.swift */,
 				F449F2E720B8AD53004707F2 /* Hospital.swift */,
 				F449F2ED20B8B38D004707F2 /* HospitalDetails.swift */,
@@ -152,8 +152,8 @@
 			files = (
 				F449F2EE20B8B38D004707F2 /* HospitalDetails.swift in Sources */,
 				F41BB2E520B890C200FCA494 /* Help_Watson.xcdatamodeld in Sources */,
+				F449F2F220B95812004707F2 /* HospitalViewController.swift in Sources */,
 				F449F2E820B8AD53004707F2 /* Hospital.swift in Sources */,
-				F41BB2DF20B890C200FCA494 /* ViewController.swift in Sources */,
 				F449F2F020B8B84F004707F2 /* HospitalTableView.swift in Sources */,
 				F449F2EA20B8B23B004707F2 /* HospitalTableViewCell.swift in Sources */,
 				F41BB2DD20B890C200FCA494 /* AppDelegate.swift in Sources */,

@@ -9,65 +9,16 @@
 import Foundation
 import UIKit
 
-class HospitalTableView: UITableViewController {
+class HospitalTableView: UITableView {
     
         //MARK: Properties
         
-        var hospitals = [Hospital]()
-        
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            
-            let refreshControl = UIRefreshControl()
-            refreshControl.addTarget(self, action:  #selector(getHospitalsData), for: UIControlEvents.valueChanged)
-            self.refreshControl = refreshControl
-            
-            // Load the sample data.
-            getHospitalsData()
-        }
-        
-        @objc private func refreshStandingsData(_ sender: Any) {
-            // Fetch Weather Data
-            getHospitalsData()
-        }
-        
-        override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
-            // Dispose of any resources that can be recreated.
-        }
+
+    
         
         //MARK: - Table view data source
         
-        override func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
-        }
-        
-        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return hospitals.count
-        }
-        
-        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            
-            // Table view cells are reused and should be dequeued using a cell identifier.
-            let cellIdentifier = "hospitalTableCell"
-            
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? HospitalTableViewCell  else {
-                fatalError("The dequeued cell is not an instance of MealTableViewCell.")
-            }
-            
-            // Fetches the appropriate meal for the data source layout.
-            let hospital = hospitals[indexPath.row]
-            
-            cell.nameLabel?.text = hospital.name
-            cell.addressLabel?.text = hospital.address
-            cell.rankLabel?.text = String(hospital.rank)
-            cell.treatmentLabel?.text = String(hospital.treatmentTime)
-            
-            self.tableView.allowsSelection = false;
-            
-            return cell
-        
-    }
+
     
         /*
          // Override to support conditional editing of the table view.
